@@ -1,19 +1,39 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
-
 hello:
   label: Hello
   permalink: /hello
-  description: Hello tag description
+  description: Hello from Dotfiles ✨
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+proxy:
+  label: Proxy
+  permalink: /proxy
+  description: Manage your network connections with ease and security. 🌐
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+nixos:
+  label: NixOS
+  permalink: /nixos
+  description: A powerful Linux distribution with declarative configuration and reproducible builds. 🐧
+
+mpv:
+  label: MPV
+  permalink: /mpv
+  description: A versatile media player that supports a wide variety of formats and codecs. 🎥
+
+ghostty:
+  label: Ghostty
+  permalink: /ghostty
+  description: A lightweight terminal emulator designed for simplicity and efficiency. 💻
+
+brave:
+  label: Brave
+  permalink: /brave
+  description: A privacy-focused web browser that blocks ads and trackers by default. 🔒
+
+tor:
+  label: Tor
+  permalink: /tor
+  description: An anonymity network that helps you defend against traffic analysis and surveillance. 🕵️
+
+jetbrains:
+  label: JetBrains
+  permalink: /jetbrains
+  description: A suite of powerful development tools that enhance productivity for programmers. 🚀
