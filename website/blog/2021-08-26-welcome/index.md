@@ -9,4 +9,4 @@ tags: [hello]
 
 ![dotfiles Logo](./tools.png)
 
-{/_ truncate _/}
+<!-- truncate -->
