@@ -73,10 +73,11 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'homeSidebar',
-          position: 'left',
-          label: 'home',
+          type: "docSidebar",
+          sidebarId: "homeSidebar",
+          className: "nav-home",
+          position: "left",
+          label: "Home",
         },
         {
           type: "docSidebar",
