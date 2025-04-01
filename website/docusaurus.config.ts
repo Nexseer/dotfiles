@@ -81,10 +81,17 @@ const config: Config = {
         },
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          className: "nav-tutorials",
+          sidebarId: "nixosSidebar",
+          className: "nav-nixos",
           position: "left",
-          label: "Tutorials",
+          label: "NixOS",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "toolSidebar",
+          className: "nav-tools",
+          position: "left",
+          label: "Tools",
         },
         {
           to: "/blog",
