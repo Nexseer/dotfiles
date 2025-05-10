@@ -1,0 +1,235 @@
+---
+sidebar_label: Fcitx5
+title: Hyprland 配置 Fcitx5 输入法指南
+sidebar_position: 1
+---
+
+Fcitx5 （Flexible Input Method Framework 5）是 Linux 平台上非常优秀且受欢迎 ✨ 的输入法框架！！
+
+> 感谢 🙏 [史上最全的Fcitx配置实践 (附带语言大模型)](https://x.com/manateelazycat/status/1906922380641145001) 这篇详细的教程，我仅在此基础上完善了 Hyprland 环境下的 Fcitx5 输入法方案。
+
+## 一、准备工作 📋
+
+基于 Wayland 协议的 Hyprland 窗口管理器，教程以 Arch 系的系统作为演示。
+
+## 二、安装与配置 🔧
+
+### 1、安装 Fcitx5 ⬇️
+
+`fcitx5-im` 包含 `fcitx5`、`fcitx5-gtk`、`fcitx5-qt`、`fcitx5-configtool`。
+
+```bash
+sudo pacman -S fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-rime
+```
+
+或者
+
+```bash
+sudo pacman -S fcitx5-im fcitx5-rime
+```
+
+:::info
+
+`fcitx5`: 输入法基础框架主程序，它支持多种语言和输入法，通过插件提供强大的功能
+
+`fcitx5-gtk`: 为 Fcitx5 在 GTK 环境下提供支持的包，它确保在基于 GTK 的应用程序中输入法能够正常工作，可修复打字太快漏字的问题
+
+`fcitx5-qt`: 在 Qt 环境下提供支持，使得在基于 Qt 的应用程序中输入法能正常使用，可修复打字太快漏字的问题
+
+`fcitx5-configtool`: 一个基于 Qt 的 GUI 工具，用于配置 Fcitx5。它提供了用户友好的界面，允许用户添加、删除和配置输入法，以及设置其他选项
+
+`fcitx5-rime`: 一个基于 Rime 输入法引擎的包，提供了拼音、五笔、仓颉等多种输入方式，并支持简繁转换和自定义词库
+
+:::
+
+### 2、配置环境变量 ⚙️
+
+为了使 Fcitx5 在基于 Wayland 协议的 Hyprland 窗口管理器下正常工作，需要设置正确的环境变量。
+
+通过在 `/etc/environment` 中设置这些变量，系统将在启动时自动加载这些环境变量。编辑文件 `/etc/environment`：
+
+:::tip
+
+`/etc/environment` 是一个系统配置文件，用于设置环境变量。这些环境变量在系统启动时被加载，并且对所有用户和进程都有效。这个文件通常用于设置全局环境变量，而不是用户特定的环境变量。
+
+:::
+
+```bash
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+```
+
+:::info
+
+`GTK_IM_MODULE=fcitx` 这个变量告诉 GTK 应用程序使用 Fcitx 作为输入法模块
+
+`QT_IM_MODULE=fcitx` 这个变量指定 Qt 应用程序使用 Fcitx 作为输入法模块
+
+`XMODIFIERS="@im=fcitx"` 这个变量用于 X11 应用程序，告诉 XIM（X Input Method）使用 Fcitx 作为输入法服务器
+
+:::
+
+### 3、配置 Hyprland 自动启动 Fcitx5 🚀
+
+编辑 Hyprland 配置文件如 `~/.config/hypr/hyprland.conf` ，在自启动应用部分添加：
+
+```bash
+exec-once = fcitx5 --replace -d
+```
+
+:::info
+
+使用 `-d` 选项表示以守护进程（daemon）方式运行。这意味着 Fcitx5 将在后台持续运行，提供输入法服务。
+
+`--replace` 选项的作用是如果已经有一个 Fcitx5 实例正在运行，新的实例将取代现有的实例。这可以确保只有一个 Fcitx5 实例在运行，避免多个实例同时运行导致的冲突或资源浪费。
+
+:::
+
+### 4、重启会话 🔄
+
+注销并重新登录到 Hyprland 会话以应用所有更改。
+
+### 5、配置输入法 ⌨️
+
+#### 配置皮肤
+
+[AUR 搜索 fcitx5-skin- ](https://aur.archlinux.org/packages?O=0&SeB=nd&K=fcitx5-skin-&outdated=&SB=p&SO=d&PP=50&submit=Go) 查看可用的 Fcitx5 输入法皮肤
+
+例如：
+
+```bash
+paru -S fcitx5-skin-ori-git
+```
+
+<img src="/img/fcitx5/1.png" alt="demonstration" />
+
+<br />
+
+或者是将下载的皮肤包放到 `$HOME/.local/share/fcitx5/themes`
+
+#### 启动 Fcitx 配置工具
+
+点击 Fcitx 配置应用图标或者命令行输入 `fcitx5-configtool`
+
+<img src="/img/fcitx5/2.png" alt="configtool" />
+
+<br />
+
+:::tip
+
+中州韵（Rime）是输入法引擎，负责处理输入算法和词库管理；Fcitx5 是输入法框架，负责提供用户界面和管理输入法的运行。两者是互补的组件，共同提供了一个完整的输入法解决方案（前面已安装 `fcitx5-rime`）
+
+:::
+
+<img src="/img/fcitx5/3_1.png" alt="configuration" />
+
+<br />
+
+<img src="/img/fcitx5/3_2.png" alt="configuration" />
+
+<br />
+
+进行以下功能的配置，以便更好使用 Fcitx5 输入法。
+
+- 配置键盘快捷键
+
+- 调整外观设置
+
+- 设置行为偏好
+
+- ……
+
+## 三、优化 ✨
+
+### 1、雾凇拼音 ❄️
+
+雾凇拼音（官方名称为 `rime-ice`）是基于 Rime 输入法引擎的一个配置仓库，提供了一套开箱即用的完整配置。它支持全拼和双拼输入方案，并且拥有长期维护的简体词库和多项扩展功能。
+
+在 `$HOME/.local/share/fcitx5/rime` 下 `git clone https://github.com/iDvel/rime-ice --depth=1`
+
+#### 开启逗号、句号翻页
+
+方法一：
+
+```bash
+sed -i 's/# \(- { when: \(paging\|has_menu\), accept: \(comma\|period\), send: Page_\(Up\|Down\) }\)/\1/' default.yaml
+```
+
+:::info
+
+上述作用是取消 `default.yaml` 文件中 `- { when: paging, accept: comma, send: Page_Up }` 和 `- { when: has_menu, accept: period, send: Page_Down }` 内容。
+
+:::
+
+方法二：
+
+创建 `default.custom.yaml`：
+
+```yaml
+patch:
+  # 仅使用「雾凇拼音」的默认配置，配置此行即可
+  __include: rime_ice_suggestion:/
+  # 以下根据自己所需自行定义，仅做参考。
+  # 针对对应处方的定制条目，请使用 <recipe>.custom.yaml 中配置，例如 rime_ice.custom.yaml
+  __patch:
+    key_binder/bindings/+:
+      # 开启逗号句号翻页
+      - { when: paging, accept: comma, send: Page_Up }
+      - { when: has_menu, accept: period, send: Page_Down }
+```
+
+#### 更改候选词的数量
+
+```bash
+sed -i 's/page_size: 5/page_size: 9/' default.yaml
+```
+
+:::info
+
+上述作用是修改 `default.yaml` 文件，将其中的文本内容 `page_size: 5` 替换为 `page_size: 9`。
+
+:::
+
+### 2、语言大模型 📊
+
+模型是用于改善输入法的预测和联想能力，特别是在处理中文输入时。
+
+[全新词库，全新语法模型](https://github.com/amzxyz/rime_wanxiang_pro/releases/tag/v6.0)可直接下载-> [wanxiang-lts-zh-hans.gram](https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram) 放到输入法用户目录根目录 `$HOME/.local/share/fcitx5/rime`
+
+新建编辑 `rime_ice.custom.yaml` 文件：
+
+```yaml
+patch:
+  grammar:
+    language: wanxiang-lts-zh-hans
+    collocation_max_length: 5
+    collocation_min_length: 2
+  translator/contextual_suggestions: true
+  translator/max_homophones: 7
+  translator/max_homographs: 7
+```
+
+配置好后进行重启！
+
+:::info
+
+**`language: amz-v2n3m1-zh-hans`**：指定使用的模型
+
+**`collocation_max_length: 5`**：设置最长的词组长度，模型会考虑最多 5 个字符的词组来进行预测和联想
+
+**`collocation_min_length: 2`**：设置最短的词组长度，模型会考虑至少 2 个字符的词组来进行预测和联想
+
+**`translator/contextual_suggestions: true`**：启用上下文建议功能，输入法会根据上下文提供更合适的候选词
+
+**`translator/max_homophones: 7`**：设置同音词的最大数量，输入法最多会显示 7 个同音词作为候选项
+
+**`translator/max_homographs: 7`**：设置同形词的最大数量，输入法最多会显示 7 个同形词作为候选项
+
+:::
+
+通过输入一些测试句子对比开启前后的效果：
+
+> yaml 文件的语法缩进要求很严格，如果未生效，先检查文件语法格式是否出错！
+
+<img src="/img/fcitx5/4.png" alt="test" />
