@@ -1,0 +1,206 @@
+---
+sidebar_label: Pomodorolm
+title: 番茄钟：高效专注的简洁计时工具
+sidebar_position: 7
+---
+
+## 一、番茄工作法 ⏰
+
+番茄工作法是由 Francesco Cirillo 在 1980 年代发明的，其理念是通过设定 25 分钟的工作时间段（一个番茄钟），然后休息 5 分钟来提高工作效率。
+
+## 二、概览 👀
+
+👉 [GitHub - vjousse/pomodorolm: A simple, good looking and multi-platform pomodoro tracker](https://github.com/vjousse/pomodorolm)
+
+<img src="/img/pomodorolm/show.png" alt="show" />
+
+<br />
+
+<img src="/img/pomodorolm/show2.png" alt="show2" width="200" />
+
+<br />
+
+- 跨平台支持：兼容 Linux（Wayland/X11）、Mac、Windows
+
+- 高度自定义：自由设置专注与休息时长、轮次、自动开始
+
+- 通知提醒：支持桌面通知及自定义音效
+
+- 主题丰富：内置及自定义主题，倒计时动态渐变色
+
+- 托盘集成：托盘图标随时间变化，可最小化到托盘
+
+- 窗口自适应：支持窗口缩放、HiDPI/4K 显示、置顶模式
+
+- 轻量小巧：体积小于 4MB，无 Electron/Node 依赖
+
+## 三、功能解析 💡
+
+### 1、参数设置 ⚙️
+
+<img src="/img/pomodorolm/parameter.png" alt="setting" />
+
+<br />
+
+:::info
+
+专注时长（Focus）：滑块设置每个专注周期的时长，默认 25 分钟
+
+短休息时长（Short Break）：滑块调节每轮专注后的短休息时长，默认 5 分钟，适合短暂放松眼睛和思维
+
+长休息时长（Long Break）：滑块设置每完成一组专注轮次后的长休息时长，默认 15 分钟，用于深度放松、缓解疲劳
+
+轮次数量（Rounds）：滑块设定每组包含的番茄钟数量，默认 4 轮，达到设定轮次后会自动进入长休息
+
+:::
+
+采用默认设置，逐步适应后可根据自身节奏灵活调整各项时长。
+
+### 2、设置 🛠️
+
+#### （1）功能设置
+
+<img src="/img/pomodorolm/general.png" alt="general" />
+
+<br />
+
+:::info
+
+总是置顶（Always On Top）：启用后，Pomodorolm 窗口将始终保持在其他应用窗口之上，方便用户随时查看和操作计时器，避免因任务切换而忘记时间
+
+自动启动工作计时器（Auto-start Work Timer）：开启该选项后，每轮番茄计时结束后，工作计时器会自动启动，无需手动操作，提升时间管理的自动化与流畅性
+
+自动启动休息计时器（Auto-start Break Timer）：此选项开启后，每轮工作计时结束后，休息计时器自动开始，帮助用户自动切换到休息状态，避免连续工作带来的疲劳
+
+随系统启动（Auto-start the app on system startup）：设置为开机自启动后，用户每次打开电脑时，Pomodorolm 都会自动运行，确保时间管理习惯无缝融入日常工作流
+
+桌面通知（Desktop Notifications）：启用后，番茄计时、休息倒计时等状态变化会通过桌面通知及时提醒用户，无论是否在主界面都能接收重要提醒
+
+最小化到托盘（Minimize to Tray）：最小化软件时，Pomodorolm 会隐藏到系统托盘（通知栏），保持后台运行且不占用任务栏空间，用户可随时从托盘重新打开主界面
+
+:::
+
+#### （2）声音设置
+
+<img src="/img/pomodorolm/sound.png" alt="sound" />
+
+<br />
+
+:::info
+
+休息计时时钟音效（Tick Sounds - Break）：启用该选项后，在休息期间会播放轻微的滴答声，帮助用户感知时间流逝，适合需要节奏感的用户提升专注
+
+工作计时时钟音效（Tick Sounds - Work）：开启后，工作倒计时期间会播放滴答声，带来类似实体计时器的氛围，助力专注于当前任务
+
+短休息开始提示音（Short break start sound）：可设置短休息开始时的提示音效。支持选择默认音效或自定义音效，便于根据个人喜好调整提示方式。当前状态为“使用默认音效”
+
+长休息开始提示音（Long break start sound）：可为长休息的开始设置专属提示音，同样支持默认与自定义音效切换，帮助用户区分不同阶段的休息提醒。当前为“使用默认音效”
+
+工作时段开始提示音（Work session start sound）：可自定义每次工作时段开始时的提示音效，既能采用系统自带的默认音效，也支持上传或选择个性化的声音文件，进一步提升体验。当前设置为“使用默认音效”
+
+:::
+
+### 3、主题配置 🎨
+
+#### （1）内置主题
+
+Pomodorolm 提供了许多不错的内置主题，可以在 [pomodorolm/docs/themes/themes.md](https://github.com/vjousse/pomodorolm/blob/main/docs/themes/themes.md) 中预览主题。
+
+点击左上角进入设置页面：
+
+<img src="/img/pomodorolm/setting.png" alt="setting" width="200" />
+
+<br />
+
+随后在主题选择中选择一个你喜欢的主题，即可完成主题配置：
+
+<img src="/img/pomodorolm/theme.png" alt="theme" />
+
+#### （2）自定义主题
+
+Pomodorolm 提供了灵活的主题自定义功能，让用户可以根据自己的喜好定制应用的外观。通过简单的 JSON 文件定义颜色值，你可以为应用创建一个完全符合你个人风格的主题。
+
+创建一个 JSON 文件，主题由一个包含主题名称和多个颜色值的 JSON 文件定义：
+
+```json
+{
+  "name": "Theme Name",
+  "colors": {
+    "--color-long-round": "",
+    "--color-short-round": "",
+    "--color-focus-round": "",
+    "--color-focus-round-middle": "",
+    "--color-focus-round-end": "",
+    "--color-background": "",
+    "--color-background-light": "",
+    "--color-background-lightest": "",
+    "--color-foreground": "",
+    "--color-foreground-darker": "",
+    "--color-foreground-darkest": "",
+    "--color-accent": ""
+  }
+}
+```
+
+:::info
+
+`--color-long-round`：长工作周期的颜色
+
+`--color-short-round`：短休息周期的颜色
+
+`--color-focus-round`：专注周期的颜色
+
+`--color-focus-round-middle`：可选项，专注周期中的渐变色
+
+`--color-focus-round-end`：可选项，专注周期结束时的渐变色
+
+`--color-background`：应用背景的颜色
+
+`--color-foreground`：前景颜色
+
+`--color-accent`：强调色，用于突出重要元素
+
+需要注意的是，`--color-focus-round-middle` 和 `--color-focus-round-end` 是可选项。如果没有提供这两个颜色，Pomodorolm 会自动从 `--color-focus-round` 到 `--color-short-round` 之间计算渐变色
+
+:::
+
+将你的自定义主题文件复制到 Pomodorolm 的主题目录中。该目录位置根据操作系统的不同而有所不同：
+
+- Windows：将主题文件添加到 %APPDATA%\pomodorolm\themes 目录下
+
+- Linux：将主题文件添加到 $XDG_CONFIG_HOME 或 ~/.config/pomodorolm/themes 目录下
+
+- macOS：将主题文件添加到 ~/Library/Application Support/pomodorolm/themes 目录下
+
+重新启动 Pomodorolm 应用程序，你的自定义主题就会作为选项显示出来。
+
+## 四、安装与获取 📥
+
+Pomodorolm 支持多种安装方式，用户可以根据自己的操作系统选择最合适的方式进行安装。
+
+1. 使用 Flatpak 安装（适用于 Linux）
+
+```bash
+flatpak install flathub org.jousse.vincent.Pomodorolm
+flatpak run org.jousse.vincent.Pomodorolm
+```
+
+2. 通过 Snap 安装（适用于 Linux）
+
+```bash
+sudo snap install pomodorolm
+```
+
+3. 通过 AUR 安装（适用于 Arch Linux）
+
+```bash
+yay -S pomodorolm-bin
+```
+
+4. 从 GitHub Releases 页面下载安装
+
+[Releases · vjousse/pomodorolm](https://github.com/vjousse/pomodorolm/releases/)
+
+5. 从源代码构建（适用于开发者）
+
+[GitHub - vjousse/pomodorolm: #dev](https://github.com/vjousse/pomodorolm?tab=readme-ov-file#-dev)
