@@ -1,0 +1,35 @@
+keybind = ctrl+physical:comma=reload_config
+
+keybind = ctrl+physical:l=clear_screen
+
+keybind = ctrl+shift+physical:c=copy_to_clipboard
+keybind = ctrl+shift+physical:v=paste_from_clipboard
+
+keybind = ctrl+physical:equal=increase_font_size:1
+keybind = ctrl+physical:minus=decrease_font_size:1
+keybind = ctrl+physical:zero=reset_font_size
+
+keybind = ctrl+alt+up=scroll_page_lines:25
+keybind = ctrl+alt+down=scroll_page_lines:-25
+
+keybind = ctrl+physical:w=close_surface
+
+keybind = ctrl+shift+physical:h=new_split:left
+keybind = ctrl+shift+physical:j=new_split:down
+keybind = ctrl+shift+physical:k=new_split:up
+keybind = ctrl+shift+physical:l=new_split:right
+
+keybind = ctrl+physical:h=goto_split:left
+keybind = ctrl+physical:j=goto_split:bottom
+keybind = ctrl+physical:k=goto_split:top
+keybind = ctrl+physical:l=goto_split:right
+
+keybind = ctrl+left=resize_split:left,20
+keybind = ctrl+down=resize_split:down,20
+keybind = ctrl+up=resize_split:up,20
+keybind = ctrl+right=resize_split:right,20
+keybind = ctrl+enter=equalize_splits
+
+keybind = ctrl+physical:t=new_tab
+keybind = ctrl+physical:n=next_tab
+keybind = ctrl+physical:p=previous_tab

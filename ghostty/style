@@ -1,0 +1,12 @@
+cursor-style = block
+cursor-style-blink = true
+cursor-invert-fg-bg = true
+
+scrollback-limit = 20000
+
+window-padding-x = 15
+window-padding-y = 15
+window-save-state = "always"
+
+gtk-wide-tabs = false
+gtk-titlebar = false

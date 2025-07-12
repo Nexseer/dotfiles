@@ -1,0 +1,13 @@
+theme = Snazzy
+
+grapheme-width-method = "unicode"
+
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+
+confirm-close-surface = false
+quit-after-last-window-closed = false
+
+config-file = keybindings
+config-file = font
+config-file = style
