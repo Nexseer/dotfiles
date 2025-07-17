@@ -2,9 +2,9 @@
 
 <img src="website/static/img/tools.png" width="100" height="100" alt="logo">
 
-# [Dotfiles]()
+# [基地]()
 
-👉 [English](README.md) | 简体中文
+👉 [English](./README.md) | 简体中文
 
 </div>
 

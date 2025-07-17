@@ -1,7 +1,7 @@
 hello:
   label: Hello
   permalink: /hello
-  description: Hello from Dotfiles ✨
+  description: Hello from Base ✨
 
 proxy:
   label: Proxy
